@@ -1,8 +1,12 @@
 {% extends 'layouts/wrapper.html' %}
 
-{% block title %} welcome to shop  {% endblock %}
+{% block title %} welcome to shop {% endblock %}
 
 
+{% block content %}
 <div class="container">
-    <h3> this homepage </h3>
+    <h2>Hello, {{ user.username|default:'Guest' }}!</h2>
+    <h3>you can register here </h3>
+    <a href="{% url 'register' %}"> register </a>
 </div>
+{% endblock %}

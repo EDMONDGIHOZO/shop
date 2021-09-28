@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models.deletion import CASCADE
 
 
+
 class Category(models.Model):
     name = models.CharField(max_length=120)
     description = models.CharField(max_length=140, null=True)

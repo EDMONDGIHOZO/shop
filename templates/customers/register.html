@@ -1,0 +1,21 @@
+{% extends 'layouts/auth-base.html' %}
+
+{% block title %} login {% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <h3>create account </h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="waves-effect waves-light btn black rounded">register</button>
+    </form>
+    <div class="section">
+        <p>your already have an account ?</p>
+        <br>
+        <a href="{%url 'login'%}"> login here </a>
+    </div>
+</div>
+
+{% endblock %}
