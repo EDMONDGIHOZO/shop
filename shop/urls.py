@@ -17,14 +17,23 @@ from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
 from pages.views import homepage_view
-from store.views import store_front_view, product_details_view
+from store.views import store_front_view, product_details_view, add_messages
 from customers.views import register
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', homepage_view, name='homepage'),
     path('accounts/', include("django.contrib.auth.urls")),
+
     path('store', store_front_view, name="store"),
     path('store/<int:id>/', product_details_view, name="details"),
     path('register/', register, name="register"),
+    path('add_messages/', add_messages, name="add_messages"),
     path('admin/', admin.site.urls),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
